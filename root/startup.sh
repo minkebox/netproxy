@@ -1,8 +1,6 @@
 #! /bin/sh
 
-IFACE=eth0
-
-IP=$(ip addr show dev ${IFACE} | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" | head -1)
+IP=$(ip addr show dev ${__DHCP_INTERFACE} | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" | head -1)
 
 for i in /etc/dnsmasq.d/*.preconf
 do
